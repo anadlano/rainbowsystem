@@ -175,7 +175,9 @@
     /* ───────────────── HERO ───────────────── */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(170deg, #1c1a18 0%, #2D2926 60%, #222020 100%);
+      background:
+        linear-gradient(100deg, rgba(28,26,24,0.92) 40%, rgba(28,26,24,0.55) 100%),
+        url('images/hero-sala.jpg') center/cover no-repeat;
       display: flex;
       align-items: center;
       padding: 100px 5% 60px;
@@ -406,8 +408,9 @@
       justify-content: center;
       font-size: 120px;
       margin: 0 auto;
-      box-shadow: 0 20px 60px rgba(0, 85, 179, .15);
+      box-shadow: 0 20px 60px rgba(0, 85, 179, .25);
       position: relative;
+      overflow: hidden;
     }
 
     .tech-circle::before {
@@ -571,7 +574,7 @@
     }
 
     /* ───────────────── TESTIMONIOS ───────────────── */
-    .testimonials { background: #165B7E; }
+    .testimonials { background: linear-gradient(rgba(22,91,126,0.78), rgba(22,91,126,0.78)), url('images/fondo-olas-oscuro.jpg') center/cover no-repeat; }
 
     .testimonials .section-label { color: rgba(255,255,255,.6); }
     .testimonials .section-title { color: var(--white); letter-spacing: 5px; }
@@ -627,7 +630,7 @@
 
     /* ───────────────── OPORTUNIDAD ───────────────── */
     .opportunity {
-      background: #2D2926;
+      background: linear-gradient(rgba(45,41,38,0.85), rgba(45,41,38,0.85)), url('images/fondo-olas-oscuro.jpg') center/cover no-repeat;
       text-align: center;
     }
 
@@ -874,7 +877,7 @@
     .problema-item p { font-size: .88rem; color: var(--text-mid); line-height: 1.5; margin: 0; font-weight: 500; }
 
     /* ───────────────── CÓMO FUNCIONA ───────────────── */
-    .como-funciona { background: var(--gray-light); }
+    .como-funciona { background: linear-gradient(rgba(244,247,249,0.82), rgba(244,247,249,0.82)), url('images/fondo-olas-claro.jpg') center/cover no-repeat; }
 
     .steps-grid {
       display: grid;
@@ -1352,7 +1355,7 @@
 
     <div class="tech-grid">
       <div class="tech-visual">
-        <div class="tech-circle">💧</div>
+        <div class="tech-circle"><img src="images/srx-tecnologia.jpg" alt="Tecnología de filtración con agua" style="width:100%;height:100%;object-fit:cover;" /></div>
         <div class="tech-badges">
           <div class="tech-badge">✅ AHAM® Certificado</div>
           <div class="tech-badge">🫁 Apto para alérgicos</div>
