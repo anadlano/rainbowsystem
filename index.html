@@ -858,13 +858,20 @@
     .problema-item {
       background: var(--gray-light);
       border-radius: 12px;
-      padding: 24px 20px;
-      text-align: center;
+      overflow: hidden;
       border: 1px solid var(--gray-mid);
+      text-align: center;
     }
 
-    .problema-icon { font-size: 40px; display: block; margin-bottom: 10px; }
-    .problema-item p { font-size: .88rem; color: var(--text-mid); line-height: 1.5; margin: 0; }
+    .problema-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .problema-item-text { padding: 14px 16px; }
+    .problema-item p { font-size: .88rem; color: var(--text-mid); line-height: 1.5; margin: 0; font-weight: 500; }
 
     /* ───────────────── CÓMO FUNCIONA ───────────────── */
     .como-funciona { background: var(--gray-light); }
@@ -1311,20 +1318,20 @@
       </div>
       <div class="problema-icons">
         <div class="problema-item">
-          <span class="problema-icon">😮‍💨</span>
-          <p>Polvo microscópico que regresa al aire</p>
+          <img src="images/pelo-perros.jpg" alt="Pelo de mascotas" class="problema-img" />
+          <div class="problema-item-text"><p>Pelo de mascotas en sofás y tapetes</p></div>
         </div>
         <div class="problema-item">
-          <span class="problema-icon">🦠</span>
-          <p>Ácaros y alérgenos en colchones y sillones</p>
+          <img src="images/tierra.jpg" alt="Tierra y suciedad" class="problema-img" />
+          <div class="problema-item-text"><p>Tierra y suciedad acumulada en pisos</p></div>
         </div>
         <div class="problema-item">
-          <span class="problema-icon">🛍️</span>
-          <p>Bolsas costosas que hay que reemplazar</p>
+          <img src="images/lavaalfombra.jpg" alt="Alfombras sucias" class="problema-img" />
+          <div class="problema-item-text"><p>Alfombras que retienen polvo y bacterias</p></div>
         </div>
         <div class="problema-item">
-          <span class="problema-icon">😤</span>
-          <p>Crisis de asma y alergias frecuentes</p>
+          <img src="images/funciones-rainbow.jpg" alt="Funciones Rainbow" class="problema-img" />
+          <div class="problema-item-text"><p>Ácaros, virus y alérgenos invisibles en el aire</p></div>
         </div>
       </div>
     </div>
@@ -1415,48 +1422,48 @@
       <!-- Videos secundarios -->
       <div class="videos-side">
 
-        <a class="video-thumb" href="#" onclick="return false;">
+        <div class="video-thumb">
           <div class="thumb-preview">
-            <!-- <img class="thumb-preview-img" src="thumb1.jpg" alt=""> -->
-            <span>💧</span>
-            <div class="thumb-play">▶</div>
+            <img class="thumb-preview-img" src="images/aspiradora-completa.jpg" alt="Sistema Rainbow SRX" />
           </div>
           <div class="thumb-info">
-            <span class="thumb-tag">Tecnología</span>
-            <h4>Cómo funciona la filtración con agua</h4>
-            <p>Explicación paso a paso del sistema de agua que atrapa cada partícula.</p>
+            <span class="thumb-tag">Sistema completo</span>
+            <h4>Rainbow SRX + AquaMate</h4>
+            <p>El sistema de aspirado y lavado de alfombras más completo del mercado.</p>
           </div>
-        </a>
+        </div>
 
-        <a class="video-thumb" href="#" onclick="return false;">
+        <div class="video-thumb">
           <div class="thumb-preview">
-            <span>🛋️</span>
-            <div class="thumb-play">▶</div>
+            <img class="thumb-preview-img" src="images/equipo-lavaalfombra.jpg" alt="Equipo lava alfombras" />
           </div>
           <div class="thumb-info">
-            <span class="thumb-tag">Demostración</span>
-            <h4>Limpieza de alfombra en tiempo real</h4>
-            <p>Mira cómo Rainbow elimina años de suciedad profunda en minutos.</p>
+            <span class="thumb-tag">Accesorio MiniJet</span>
+            <h4>Lava alfombras en profundidad</h4>
+            <p>Elimina años de suciedad acumulada con el kit de lavado Rainbow.</p>
           </div>
-        </a>
+        </div>
 
-        <a class="video-thumb" href="#" onclick="return false;">
+        <div class="video-thumb">
           <div class="thumb-preview">
-            <span>😊</span>
-            <div class="thumb-play">▶</div>
+            <img class="thumb-preview-img" src="images/powernozzle.jpg" alt="PowerNozzle" />
           </div>
           <div class="thumb-info">
-            <span class="thumb-tag">Testimonio</span>
-            <h4>Familias mexicanas hablan de Rainbow</h4>
-            <p>Clientes reales comparten su experiencia después de años de uso.</p>
+            <span class="thumb-tag">Accesorio PowerNozzle</span>
+            <h4>El más poderoso contra la contaminación</h4>
+            <p>Elimina ácaros y contaminantes profundos en colchones y alfombras.</p>
           </div>
-        </a>
+        </div>
 
-        <!-- Tarjeta para subir video adicional -->
-        <div class="video-upload-card">
-          <div class="upload-icon">🎬</div>
-          <p>+ Agregar otro video</p>
-          <span>YouTube, MP4 o cualquier formato</span>
+        <div class="video-thumb">
+          <div class="thumb-preview">
+            <img class="thumb-preview-img" src="images/funciones-rainbow.jpg" alt="Funciones Rainbow" />
+          </div>
+          <div class="thumb-info">
+            <span class="thumb-tag">Multifuncional</span>
+            <h4>6 funciones en un solo equipo</h4>
+            <p>Lava el aire, desodoriza, higieniza y aromatiza tu hogar al mismo tiempo.</p>
+          </div>
         </div>
 
       </div>
