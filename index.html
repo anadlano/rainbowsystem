@@ -309,10 +309,9 @@
     .product-illustration {
       display: block;
       width: 100%;
-      max-width: 280px;
-      margin: 0 auto 16px;
-      mix-blend-mode: multiply;
-      filter: brightness(1.25) drop-shadow(0 16px 32px rgba(0,0,0,.5));
+      border-radius: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.5);
     }
 
     .hero-product-card h3 {
@@ -1297,7 +1296,9 @@
 
     <div class="hero-visual">
       <div class="hero-product-card">
-        <img class="product-illustration" src="images/aspiradora-rainbow.jpg" alt="Sistema Rainbow SRX" />
+        <video class="product-illustration" autoplay muted loop playsinline poster="images/aspiradora-rainbow.jpg">
+          <source src="images/rainbow-aspiradora.mp4" type="video/mp4" />
+        </video>
         <h3>Sistema Rainbow</h3>
         <p>Aspiradora · Purificador de aire<br />Limpiador de alfombras</p>
       </div>
