@@ -872,7 +872,9 @@
       height: 160px;
       object-fit: cover;
       display: block;
+      transition: transform .35s ease;
     }
+    .problema-item:hover .problema-img { transform: scale(1.07); cursor: pointer; }
 
     .problema-item-text { padding: 14px 16px; }
     .problema-item p { font-size: .88rem; color: var(--text-mid); line-height: 1.5; margin: 0; font-weight: 500; }
@@ -1162,6 +1164,14 @@
       height: 100%;
       object-fit: cover;
       border-radius: 8px;
+      transition: transform .35s ease;
+    }
+    .video-thumb:hover .thumb-preview-img { transform: scale(1.08); }
+    .video-thumb { cursor: pointer; }
+    .video-thumb.active-thumb {
+      border-color: var(--blue-light);
+      background: var(--light-blue-bg);
+      box-shadow: 0 4px 20px rgba(0,169,224,.18);
     }
 
     .thumb-play {
@@ -1407,68 +1417,69 @@
 
     <div class="videos-main">
 
-      <!-- Video destacado -->
-      <div class="video-featured">
-        <!--
-          OPCIÓN A — YouTube: reemplaza el src con tu URL embed
-          <iframe src="https://www.youtube.com/embed/TU_ID_VIDEO" allowfullscreen></iframe>
-
-          OPCIÓN B — Video propio: reemplaza src con la ruta de tu archivo
-          <video controls poster="portada.jpg">
-            <source src="tu-video.mp4" type="video/mp4" />
-          </video>
-        -->
-        <div class="video-placeholder" id="featuredPlaceholder">
-          <div class="play-btn">▶</div>
-          <span class="video-placeholder-label">Video principal — Demo Rainbow</span>
-          <span class="video-upload-tag">📤 Sube tu video aquí</span>
-        </div>
+      <!-- Featured area -->
+      <div class="video-featured" id="featuredArea">
+        <video id="featuredVideo" controls poster="images/aspiradora-rainbow.jpg" style="width:100%;height:100%;border-radius:14px;display:block;">
+          <source src="images/rainbow-aspiradora.mp4" type="video/mp4" />
+        </video>
       </div>
 
-      <!-- Videos secundarios -->
+      <!-- Carrete lateral -->
       <div class="videos-side">
 
-        <div class="video-thumb">
+        <div class="video-thumb active-thumb" data-type="video" data-src="images/rainbow-aspiradora.mp4" data-poster="images/aspiradora-rainbow.jpg">
           <div class="thumb-preview">
-            <img class="thumb-preview-img" src="images/aspiradora-completa.jpg" alt="Sistema Rainbow SRX" />
+            <img class="thumb-preview-img" src="images/aspiradora-rainbow.jpg" alt="Video Rainbow" />
+            <div class="thumb-play">▶</div>
           </div>
           <div class="thumb-info">
-            <span class="thumb-tag">Sistema completo</span>
-            <h4>Rainbow SRX + AquaMate</h4>
-            <p>El sistema de aspirado y lavado de alfombras más completo del mercado.</p>
+            <span class="thumb-tag">Video</span>
+            <h4>Rainbow SRX en acción</h4>
+            <p>Demostración completa del sistema de limpieza con agua.</p>
           </div>
         </div>
 
-        <div class="video-thumb">
+        <div class="video-thumb" data-type="image" data-src="images/aspirar-cojines.jpg" data-label="Aspirar cojines y sillones">
           <div class="thumb-preview">
-            <img class="thumb-preview-img" src="images/equipo-lavaalfombra.jpg" alt="Equipo lava alfombras" />
+            <img class="thumb-preview-img" src="images/aspirar-cojines.jpg" alt="Aspirar cojines" />
           </div>
           <div class="thumb-info">
-            <span class="thumb-tag">Accesorio MiniJet</span>
-            <h4>Lava alfombras en profundidad</h4>
-            <p>Elimina años de suciedad acumulada con el kit de lavado Rainbow.</p>
+            <span class="thumb-tag">Uso</span>
+            <h4>Aspirar cojines y sillones</h4>
+            <p>Elimina el polvo y ácaros atrapados en los tapizados.</p>
           </div>
         </div>
 
-        <div class="video-thumb">
+        <div class="video-thumb" data-type="image" data-src="images/cojines-sillon.jpg" data-label="Cojines de sillón">
           <div class="thumb-preview">
-            <img class="thumb-preview-img" src="images/powernozzle.jpg" alt="PowerNozzle" />
+            <img class="thumb-preview-img" src="images/cojines-sillon.jpg" alt="Cojines sillón" />
           </div>
           <div class="thumb-info">
-            <span class="thumb-tag">Accesorio PowerNozzle</span>
-            <h4>El más poderoso contra la contaminación</h4>
-            <p>Elimina ácaros y contaminantes profundos en colchones y alfombras.</p>
+            <span class="thumb-tag">Uso</span>
+            <h4>Limpieza profunda de tapizados</h4>
+            <p>Perfecto para todo tipo de telas y superficies delicadas.</p>
           </div>
         </div>
 
-        <div class="video-thumb">
+        <div class="video-thumb" data-type="image" data-src="images/debajo-refri.jpg" data-label="Debajo del refrigerador">
           <div class="thumb-preview">
-            <img class="thumb-preview-img" src="images/funciones-rainbow.jpg" alt="Funciones Rainbow" />
+            <img class="thumb-preview-img" src="images/debajo-refri.jpg" alt="Debajo del refrigerador" />
           </div>
           <div class="thumb-info">
-            <span class="thumb-tag">Multifuncional</span>
-            <h4>6 funciones en un solo equipo</h4>
-            <p>Lava el aire, desodoriza, higieniza y aromatiza tu hogar al mismo tiempo.</p>
+            <span class="thumb-tag">Uso</span>
+            <h4>Lugares de difícil acceso</h4>
+            <p>Llega a donde ninguna aspiradora convencional puede.</p>
+          </div>
+        </div>
+
+        <div class="video-thumb" data-type="image" data-src="images/lava-alfombras.jpg" data-label="Lava alfombras">
+          <div class="thumb-preview">
+            <img class="thumb-preview-img" src="images/lava-alfombras.jpg" alt="Lava alfombras" />
+          </div>
+          <div class="thumb-info">
+            <span class="thumb-tag">Uso</span>
+            <h4>Lavado profundo de alfombras</h4>
+            <p>Extrae la suciedad profunda con el sistema de agua Rainbow.</p>
           </div>
         </div>
 
@@ -1850,6 +1861,26 @@
       btn.textContent = 'Solicitar ahora →';
       btn.disabled = false;
     });
+
+  // Gallery carousel
+  document.querySelectorAll('.video-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const type   = thumb.dataset.type;
+      const src    = thumb.dataset.src;
+      const poster = thumb.dataset.poster || '';
+      const label  = thumb.dataset.label  || '';
+      const area   = document.getElementById('featuredArea');
+
+      document.querySelectorAll('.video-thumb').forEach(t => t.classList.remove('active-thumb'));
+      thumb.classList.add('active-thumb');
+
+      if (type === 'video') {
+        area.innerHTML = '<video id="featuredVideo" controls poster="' + poster + '" style="width:100%;height:100%;border-radius:14px;display:block;"><source src="' + src + '" type="video/mp4"></video>';
+      } else {
+        area.innerHTML = '<img src="' + src + '" alt="' + label + '" style="width:100%;height:100%;object-fit:cover;border-radius:14px;display:block;">';
+      }
+    });
+  });
   </script>
 
 </body>
