@@ -1708,6 +1708,15 @@
           <option>Soporte para equipo existente</option>
         </select>
       </div>
+
+      <div id="calendly-container" style="display:none; margin-top:8px; margin-bottom:8px;">
+        <div style="border-top:1px solid var(--gray-mid); margin:16px 0;"></div>
+        <p style="font-family:'Dunbar','Helvetica Neue',Helvetica,sans-serif; font-size:.85rem; font-weight:600; color:var(--blue-dark); margin-bottom:12px; text-align:center; letter-spacing:.5px;">
+          📅 Elige el día y hora que más te convenga:
+        </p>
+        <div class="calendly-inline-widget" id="calendly-widget" data-url="https://calendly.com/rbwgdl/30min?hide_gdpr_banner=1" style="min-width:100%;height:660px;"></div>
+      </div>
+
       <div id="form-msg" style="display:none; padding:12px; border-radius:4px; margin-bottom:16px; font-family:'Barlow',sans-serif; font-size:.9rem; text-align:center;"></div>
       <button class="btn-submit" id="submitBtn">Solicitar ahora →</button>
     </div>
@@ -1808,7 +1817,7 @@
     });
 
     // Form submission → Google Apps Script
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAR_zvOgeVxrC2rO0wWj290-IoiJxxnWFbSeXk4SXgv_Z2CXCClO9fSFwd4J6Wmky4qA/exec';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwnMsOms2Y3quX9ZO0lboNUkA9VCvA72MCe0nqqnU6I7nRPcl7_gA0-gEqKlApJJFCn_A/exec';
 
     document.getElementById('submitBtn').addEventListener('click', async () => {
       const nombre   = document.getElementById('f-nombre').value.trim();
@@ -1853,6 +1862,38 @@
       btn.textContent = 'Solicitar ahora →';
       btn.disabled = false;
     });
+
+  // Calendly integration
+  document.getElementById('f-interes').addEventListener('change', function () {
+    const container = document.getElementById('calendly-container');
+    const widget    = document.getElementById('calendly-widget');
+
+    if (this.value === 'Demo del sistema Rainbow en casa') {
+      const nombre   = document.getElementById('f-nombre').value.trim();
+      const apellido = document.getElementById('f-apellido').value.trim();
+      const email    = document.getElementById('f-email').value.trim();
+
+      const params = new URLSearchParams({ hide_gdpr_banner: '1' });
+      if (nombre || apellido) params.set('name', (nombre + ' ' + apellido).trim());
+      if (email)              params.set('email', email);
+
+      widget.dataset.url = 'https://calendly.com/rbwgdl/30min?' + params.toString();
+
+      container.style.display = 'block';
+      container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      if (!window.Calendly) {
+        const s = document.createElement('script');
+        s.src = 'https://assets.calendly.com/assets/external/widget.js';
+        s.async = true;
+        document.head.appendChild(s);
+      } else {
+        Calendly.initInlineWidgets();
+      }
+    } else {
+      container.style.display = 'none';
+    }
+  });
 
   // Gallery carousel
   document.querySelectorAll('.video-thumb').forEach(thumb => {
